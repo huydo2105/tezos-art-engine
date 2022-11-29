@@ -26,8 +26,6 @@ const solanaMetadata = {
 const layerConfigurations = [
   {
     growEditionSizeTo: 20,
-    firstArtistEdition: 5,
-    secondArtistEdition: 15,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -57,12 +55,13 @@ const layerConfigurations = [
 
 const shuffleLayerConfigurations = false;
 
-const debugLogs = true;
+const debugLogs = false;
 
 const format = {
   width: 1024,
   height: 1024,
   smoothing: false,
+  rate: 320,
 };
 
 const gif = {
@@ -123,56 +122,30 @@ const preview_gif = {
  * NOTE: Modify this config to generate different metadata.
  */
 
-const tezosConfig = [
-  {
-    creators: ["Arria Star https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
-    isBooleanAmount: true,
-    shouldPreferSymbol: false,
-    decimals: 0,
-    symbol: "JOKO",
-    rights: "All right reserved.",
-    baseArtifactUri: baseUri,
-    baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-    baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
-    size: {
-      artifactUri: { w: format.width, h: format.height },
-      displayUri: { w: 500, h: 500 },
-      thumbnailUri: { w: 300, h: 300 },
+const tezosConfig = {
+  creators: ["Lojay https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
+  isBooleanAmount: true,
+  shouldPreferSymbol: false,
+  decimals: 0,
+  symbol: "JOKO",
+  rights: "All right reserved.",
+  baseArtifactUri: baseUri,
+  baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
+  baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
+  size: {
+    artifactUri: { w: format.width, h: format.height, r: format.rate },
+    displayUri: { w: 500, h: 500 },
+    thumbnailUri: { w: 300, h: 300 },
+  },
+  royalties: {
+    decimals: 3,
+    shares: {
+      tz1cVm8jzr5MN6oH21p54HuWCi69qYzjo7MN: 80,
+      tz1hWvP1HXRAmBWQU4ewYUeNNrEdz2sUKDNJ: 50,
+      tz1NcYGUWUrcriX5nWmHN6daCDKHQdMUSUDp: 30,
     },
-    royalties: {
-      decimals: 3,
-      shares: {
-        tz1cVm8jzr5MN6oH21p54HuWCi69qYzjo7MN: 80,
-        tz1hWvP1HXRAmBWQU4ewYUeNNrEdz2sUKDNJ: 50,
-        tz1NcYGUWUrcriX5nWmHN6daCDKHQdMUSUDp: 30,
-      },
-    },
-  }, 
-  {
-    creators: ["Arria Star https://rarible.com/ulfric","Charlie https://rarible.com/reza-mind-artist"],
-    isBooleanAmount: true,
-    shouldPreferSymbol: false,
-    decimals: 0,
-    symbol: "JOKO",
-    rights: "All right reserved.",
-    baseArtifactUri: baseUri,
-    baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-    baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
-    size: {
-      artifactUri: { w: format.width, h: format.height },
-      displayUri: { w: 500, h: 500 },
-      thumbnailUri: { w: 300, h: 300 },
-    },
-    royalties: {
-      decimals: 3,
-      shares: {
-        tz1cVm8jzr5MN6oH21p54HuWCi69qYzjo7MN: 120,
-        tz1bnmFGgKfrRfHLNABQpWh14CjsTKmrFNog: 100,
-        tz1iyd1dExPGVuS7JvueGXF13LZaENVcaPya: 30,
-      },
-    },
-  }
-]
+  },
+};
 
 /**
  * End of tezos specific config.

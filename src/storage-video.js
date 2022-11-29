@@ -109,7 +109,6 @@ const layersSetup = (layersOrder) => {
 };
 
 const saveImage = (_editionCount) => {
-  // _editionCount = _editionCount + layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo
   fs.writeFileSync(
     `${buildDir}/images/${_editionCount}.png`,
     canvas.toBuffer("image/png")
@@ -167,54 +166,55 @@ const addMetadata = (_dna, _edition) => {
     };
   }
   if (network == NETWORK.tez) {
-    tezosConfigForArtist = _edition <= layerConfigurations[layerConfigurations.length - 1].firstArtistEdition ? tezosConfig[0] : tezosConfig[1];
-    
     tempMetadata = {
       edition: Number(_edition),
       name: `${namePrefix} #${_edition}`,
       description: description,
-      artifactUri: `${tezosConfigForArtist.baseArtifactUri}/${_edition}.png`,
-      displayUri: `${tezosConfigForArtist.baseDisplayUri}/${_edition}.png`,
-      thumbnailUri: `${tezosConfigForArtist.baseThumbnailUri}/${_edition}.png`,
-      decimals: tezosConfigForArtist.decimals,
-      attributes: attributesList,
-      creators: tezosConfigForArtist.creators,
-      isBooleanAmount: tezosConfigForArtist.isBooleanAmount,
-      symbol: tezosConfigForArtist.symbol,
-      rights: tezosConfigForArtist.rights,
-      shouldPreferSymbol: tezosConfigForArtist.shouldPreferSymbol,
+      artifactUri: `${tezosConfig.baseArtifactUri}`,
+      displayUri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
+      thumbnailUri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
+      decimals: tezosConfig.decimals,
+      // attributes: attributesList,
+      creators: tezosConfig.creators,
+      isBooleanAmount: tezosConfig.isBooleanAmount,
+      symbol: tezosConfig.symbol,
+      rights: tezosConfig.rights,
+      shouldPreferSymbol: tezosConfig.shouldPreferSymbol,
       formats: [
         {
+          mimeType: "audio/mpeg",
+          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
+          fileSize: 37654907,
+          duration: "00:01:31",
+          uri: `${tezosConfig.baseArtifactUri}`,
+          dataRate: {
+            value: `${tezosConfig.size.artifactUri.r}`,
+            unit: "kps",
+          },
+        },
+        {
           mimeType: "image/png",
-          uri: `${tezosConfigForArtist.baseArtifactUri}/${_edition}.png`,
+          uri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
           dimensions: {
-            value: `${tezosConfigForArtist.size.artifactUri.w}x${tezosConfigForArtist.size.artifactUri.h}`,
+            value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
             unit: "px",
           },
         },
         {
           mimeType: "image/png",
-          uri: `${tezosConfigForArtist.baseDisplayUri}/${_edition}.png`,
+          uri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
           dimensions: {
-            value: `${tezosConfigForArtist.size.displayUri.w}x${tezosConfigForArtist.size.displayUri.h}`,
-            unit: "px",
-          },
-        },
-        {
-          mimeType: "image/png",
-          uri: `${tezosConfigForArtist.baseThumbnailUri}/${_edition}.png`,
-          dimensions: {
-            value: `${tezosConfigForArtist.size.thumbnailUri.w}x${tezosConfigForArtist.size.thumbnailUri.h}`,
+            value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
             unit: "px",
           },
         },
       ],
       ...extraMetadata,
-      royalties: tezosConfigForArtist.royalties,
+      royalties: tezosConfig.royalties,
     };
   }
   metadataList.push(tempMetadata);
-  attributesList = [];
+  // attributesList = [];
 };
 
 const addAttributes = (_element) => {
@@ -357,7 +357,6 @@ const writeMetaData = (_data) => {
 };
 
 const saveMetaDataSingleFile = (_editionCount) => {
-  // _editionCount = _editionCount + layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo
   let metadata = metadataList.find((meta) => meta.edition == _editionCount);
   debugLogs
     ? console.log(

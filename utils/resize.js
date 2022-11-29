@@ -14,11 +14,11 @@ const { tezosConfig } = require(`${basePath}/src/config.js`);
 
 const config = {
   thumbnailUri: {
-    ...tezosConfig.size.thumbnailUri,
+    ...tezosConfig[0].size.thumbnailUri,
     path: `${basePath}/build/thumbnailUri/`,
   },
   displayUri: {
-    ...tezosConfig.size.displayUri,
+    ...tezosConfig[0].size.displayUri,
     path: `${basePath}/build/displayUri/`,
   },
 };
