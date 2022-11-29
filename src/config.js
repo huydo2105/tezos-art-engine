@@ -8,7 +8,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmQc8NbrT2KDZrQRTv62q9bPYL4W9m8FfZTVWyoq6ZMnUf";
+const baseUri = "ipfs://QmchJuxKugSokg4dfyokiXfU7JaUBYYH4EMeAAjFxtFvcR";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -132,8 +132,8 @@ const tezosConfig = [
     symbol: "JOKO",
     rights: "All right reserved.",
     baseArtifactUri: baseUri,
-    baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-    baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
+    baseDisplayUri: "ipfs://QmeZeSykpyiUtyLp4X8HXx5BHqBGsGMMtcHJkm1XiUGTFj",
+    baseThumbnailUri: "ipfs://QmYWCF4udxNy5yPm9Fy1jRjSDRPdgry2Kq5pQFu3usbZ3z",
     size: {
       artifactUri: { w: format.width, h: format.height },
       displayUri: { w: 500, h: 500 },
@@ -156,8 +156,8 @@ const tezosConfig = [
     symbol: "JOKO",
     rights: "All right reserved.",
     baseArtifactUri: baseUri,
-    baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-    baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
+    baseDisplayUri: "ipfs://QmeZeSykpyiUtyLp4X8HXx5BHqBGsGMMtcHJkm1XiUGTFj",
+    baseThumbnailUri: "ipfs://QmYWCF4udxNy5yPm9Fy1jRjSDRPdgry2Kq5pQFu3usbZ3z",
     size: {
       artifactUri: { w: format.width, h: format.height },
       displayUri: { w: 500, h: 500 },
