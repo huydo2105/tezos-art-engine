@@ -22,39 +22,38 @@ data.forEach((item) => {
     item.creators = solanaMetadata.creators;
   } else if (network == NETWORK.tez) {
     // Modify tezos specif metadata
-    tezosConfigArtist = tezosConfig[0];
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
-    item.artifactUri = `${tezosConfigArtist.baseArtifactUri}/${item.edition}.png`;
-    item.displayUri = `${tezosConfigArtist.baseDisplayUri}/${item.edition}.png`;
-    item.thumbnailUri = `${tezosConfigArtist.baseThumbnailUri}/${item.edition}.png`;
+    item.artifactUri = `${tezosConfig.baseArtifactUri}/${item.edition}.png`;
+    item.displayUri = `${tezosConfig.baseDisplayUri}/${item.edition}.png`;
+    item.thumbnailUri = `${tezosConfig.baseThumbnailUri}/${item.edition}.png`;
     item.formats = [
       {
         mimeType: "image/png",
-        uri: `${tezosConfigArtist.baseArtifactUri}/${item.edition}.png`,
+        uri: `${tezosConfig.baseArtifactUri}/${item.edition}.png`,
         dimensions: {
-          value: `${tezosConfigArtist.size.artifactUri.w}x${tezosConfigArtist.size.artifactUri.h}`,
+          value: `${tezosConfig.size.artifactUri.w}x${tezosConfig.size.artifactUri.h}`,
           unit: "px",
         },
       },
       {
         mimeType: "image/png",
-        uri: `${tezosConfigArtist.baseDisplayUri}/${item.edition}.png`,
+        uri: `${tezosConfig.baseDisplayUri}/${item.edition}.png`,
         dimensions: {
-          value: `${tezosConfigArtist.size.displayUri.w}x${tezosConfigArtist.size.displayUri.h}`,
+          value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
           unit: "px",
         },
       },
       {
         mimeType: "image/png",
-        uri: `${tezosConfigArtist.baseThumbnailUri}/${item.edition}.png`,
+        uri: `${tezosConfig.baseThumbnailUri}/${item.edition}.png`,
         dimensions: {
-          value: `${tezosConfigArtist.size.thumbnailUri.w}x${tezosConfigArtist.size.thumbnailUri.h}`,
+          value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
           unit: "px",
         },
       },
     ];
-    // item.royalties = tezosConfigArtist.royalties;
+    item.royalties = tezosConfig.royalties;
   } else {
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
@@ -81,21 +80,21 @@ if (network == NETWORK.sol) {
   );
 } else if (network == NETWORK.tez) {
   console.log(
-    `Updated artifactUri for images to ===> ${tezosConfigArtist.baseArtifactUri}`
+    `Updated artifactUri for images to ===> ${tezosConfig.baseArtifactUri}`
   );
   console.log(
-    `Updated displayUri for images to ===> ${tezosConfigArtist.baseDisplayUri}`
+    `Updated displayUri for images to ===> ${tezosConfig.baseDisplayUri}`
   );
   console.log(
-    `Updated thumbnailUri for images to ===> ${tezosConfigArtist.baseThumbnailUri}`
+    `Updated thumbnailUri for images to ===> ${tezosConfig.baseThumbnailUri}`
   );
-  // console.log(
-  //   `Updated royalties for item to ===> ${JSON.stringify(
-  //     tezosConfigArtist.royalties,
-  //     0,
-  //     2
-  //   )}`
-  // );
+  console.log(
+    `Updated royalties for item to ===> ${JSON.stringify(
+      tezosConfig.royalties,
+      0,
+      2
+    )}`
+  );
   console.log(`Updated description for images to ===> ${description}`);
   console.log(`Updated name prefix for images to ===> ${namePrefix}`);
 } else {
