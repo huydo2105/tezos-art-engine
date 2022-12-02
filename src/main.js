@@ -170,9 +170,9 @@ const addMetadata = (_dna, _edition) => {
       edition: Number(_edition),
       name: `${namePrefix} #${_edition}`,
       description: description,
-      artifactUri: `${tezosConfig.baseArtifactUri}/${_edition}.png`,
-      displayUri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
-      thumbnailUri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
+      artifactUri: `${tezosConfig.baseArtifactUri}`,
+      displayUri: `${tezosConfig.baseDisplayUri}`,
+      thumbnailUri: `${tezosConfig.baseThumbnailUri}`,
       decimals: tezosConfig.decimals,
       // attributes: attributesList,
       creators: tezosConfig.creators,
@@ -182,27 +182,36 @@ const addMetadata = (_dna, _edition) => {
       shouldPreferSymbol: tezosConfig.shouldPreferSymbol,
       formats: [
         {
-          mimeType: "image/png",
-          uri: `${tezosConfig.baseArtifactUri}/${_edition}.png`,
-          dimensions: {
-            value: `${tezosConfig.size.artifactUri.w}x${tezosConfig.size.artifactUri.h}`,
-            unit: "px",
+          mimeType: "audio/mpeg",
+          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
+          fileSize: 37654907,
+          duration: "00:01:31",
+          uri: `${tezosConfig.baseArtifactUri}`,
+          dataRate: {
+            value: `${tezosConfig.size.artifactUri.r}`,
+            unit: "kps",
           },
         },
         {
-          mimeType: "image/png",
-          uri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
-          dimensions: {
-            value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
-            unit: "px",
+          mimeType: "audio/mpeg",
+          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
+          fileSize: 37654907,
+          duration: "00:01:31",
+          uri: `${tezosConfig.baseDisplayUri}`,
+          dataRate: {
+            value: `${tezosConfig.size.artifactUri.r}`,
+            unit: "kps",
           },
         },
         {
-          mimeType: "image/png",
-          uri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
-          dimensions: {
-            value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
-            unit: "px",
+          mimeType: "audio/mpeg",
+          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
+          fileSize: 37654907,
+          duration: "00:01:31",
+          uri: `${tezosConfig.baseThumbnailUri}`,
+          dataRate: {
+            value: `${tezosConfig.size.artifactUri.r}`,
+            unit: "kps",
           },
         },
       ],
@@ -211,7 +220,7 @@ const addMetadata = (_dna, _edition) => {
     };
   }
   metadataList.push(tempMetadata);
-  attributesList = [];
+  // attributesList = [];
 };
 
 const addAttributes = (_element) => {
