@@ -1,7 +1,8 @@
 const basePath = process.cwd();
 const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 const { NETWORK } = require(`${basePath}/constants/network.js`);
-
+const fs = require("fs");
+var mime = require('mime-types')
 // `const network = NETWORK.eth;
 const network = NETWORK.tez;
 
@@ -57,12 +58,40 @@ const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
 
+const artifact_name = "Caliph - JOKO teaser long (Imran)-.mp4"
+const display_name = "Caliph - JOKO teaser long (Imran)-.mp4"
+const thumbnail_name = "Caliph - JOKO teaser long (Imran)-.mp4"
+const artifactVideo = fs.statSync(`${basePath}/src_video/${artifact_name}`)
+const displayVideo = fs.statSync(`${basePath}/src_video/${display_name}`)
+const thumbnailVideo = fs.statSync(`${basePath}/src_video/${thumbnail_name}`)
+const artifactType = mime.lookup(`${basePath}/src_video/${artifact_name}`)
+const displayType = mime.lookup(`${basePath}/src_video/${display_name}`)
+const thumbnailType = mime.lookup(`${basePath}/src_video/${thumbnail_name}`)
+
+const video = {
+  artifact: {
+    name: artifact_name,
+    size: artifactVideo.size,
+    type: artifactType
+  },
+  display: {
+    name: display_name,
+    size: displayVideo.size,
+    type: displayType
+  },
+  thumbnail: {
+    name: thumbnail_name,
+    size: thumbnailVideo.size,
+    type: thumbnailType
+  }
+}
+
 const format = {
   width: 1024,
   height: 1024,
   smoothing: false,
-  rate: 320,
 };
+
 
 const gif = {
   export: false,
@@ -152,6 +181,7 @@ const tezosConfig = {
  */
 
 module.exports = {
+  video,
   format,
   baseUri,
   description,

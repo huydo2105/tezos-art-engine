@@ -6,6 +6,7 @@ const { createCanvas, loadImage } = require(`${basePath}/node_modules/canvas`);
 const buildDir = `${basePath}/build`;
 const layersDir = `${basePath}/layers`;
 const {
+  video,
   format,
   baseUri,
   description,
@@ -182,37 +183,22 @@ const addMetadata = (_dna, _edition) => {
       shouldPreferSymbol: tezosConfig.shouldPreferSymbol,
       formats: [
         {
-          mimeType: "audio/mpeg",
-          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
-          fileSize: 37654907,
-          duration: "00:01:31",
+          mimeType: video.artifact.type,
+          fileName: video.artifact.name,
+          fileSize: video.artifact.size,
           uri: `${tezosConfig.baseArtifactUri}`,
-          dataRate: {
-            value: `${tezosConfig.size.artifactUri.r}`,
-            unit: "kps",
-          },
         },
         {
-          mimeType: "audio/mpeg",
-          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
-          fileSize: 37654907,
-          duration: "00:01:31",
+          mimeType: video.display.type,
+          fileName: video.display.name,
+          fileSize: video.display.size,
           uri: `${tezosConfig.baseDisplayUri}`,
-          dataRate: {
-            value: `${tezosConfig.size.artifactUri.r}`,
-            unit: "kps",
-          },
         },
         {
-          mimeType: "audio/mpeg",
-          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
-          fileSize: 37654907,
-          duration: "00:01:31",
+          mimeType: video.thumbnail.type,
+          fileName: video.thumbnail.name,
+          fileSize: video.thumbnail.size,
           uri: `${tezosConfig.baseThumbnailUri}`,
-          dataRate: {
-            value: `${tezosConfig.size.artifactUri.r}`,
-            unit: "kps",
-          },
         },
       ],
       ...extraMetadata,
