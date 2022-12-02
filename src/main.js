@@ -181,38 +181,35 @@ const addMetadata = (_dna, _edition) => {
       rights: tezosConfig.rights,
       shouldPreferSymbol: tezosConfig.shouldPreferSymbol,
       formats: [
-        {
-          mimeType: "audio/mpeg",
-          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
-          fileSize: 37654907,
-          duration: "00:01:31",
+        { 
+          dimensions: {
+            unit: "px",
+            value: `${tezosConfig.size.artifactUri.w}x${tezosConfig.size.artifactUri.h}`,
+          },
+          fileName: gif.artifact.name,
+          fileSize: gif.artifact.size,
+          mimeType: gif.artifact.type,
           uri: `${tezosConfig.baseArtifactUri}`,
-          dataRate: {
-            value: `${tezosConfig.size.artifactUri.r}`,
-            unit: "kps",
-          },
         },
-        {
-          mimeType: "audio/mpeg",
-          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
-          fileSize: 37654907,
-          duration: "00:01:31",
+        { 
+          dimensions: {
+            unit: "px",
+            value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
+          },
+          fileName: gif.display.name,
+          fileSize: gif.display.size,
+          mimeType: gif.display.type,
           uri: `${tezosConfig.baseDisplayUri}`,
-          dataRate: {
-            value: `${tezosConfig.size.artifactUri.r}`,
-            unit: "kps",
-          },
         },
-        {
-          mimeType: "audio/mpeg",
-          fileName: "Caliph - JOKO teaser long (Imran)-.mp4",
-          fileSize: 37654907,
-          duration: "00:01:31",
-          uri: `${tezosConfig.baseThumbnailUri}`,
-          dataRate: {
-            value: `${tezosConfig.size.artifactUri.r}`,
-            unit: "kps",
+        { 
+          dimensions: {
+            unit: "px",
+            value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
           },
+          fileName: gif.thumbnail.name,
+          fileSize: gif.thumbnail.size,
+          mimeType: gif.thumbnail.type,
+          uri: `${tezosConfig.baseThumbnailUri}`,
         },
       ],
       ...extraMetadata,

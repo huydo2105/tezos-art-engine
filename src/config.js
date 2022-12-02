@@ -1,6 +1,7 @@
 const basePath = process.cwd();
 const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 const { NETWORK } = require(`${basePath}/constants/network.js`);
+const fs = require('fs');
 
 // `const network = NETWORK.eth;
 const network = NETWORK.tez;
@@ -64,11 +65,33 @@ const format = {
   rate: 320,
 };
 
+const artifact_name = "artifact.gif"
+const display_name = "display.gif"
+const thumbnail_name = "thumbnail.gif"
+const artifactGif = await fs.promises.stat(`${basePath}/src_gif/${artifact_name}`)
+const displayGif = await fs.promises.stat(`${basePath}/src_gif/${display_name}`)
+const thumbnailGif = await fs.promises.stat(`${basePath}/src_gif/${thumbnail_name}`)
+
 const gif = {
   export: false,
   repeat: 0,
   quality: 100,
   delay: 500,
+  artifact: {
+    name: artifact_name,
+    size: artifactGif.size,
+    type: artifactGif.type  
+  },
+  display: {
+    name: display_name,
+    size: displayGif.size,
+    type: displayGif.type  
+  },
+  thumbnail: {
+    name: thumbnail_name,
+    size: thumbnailGif.size,
+    type: thumbnailGif.type  
+  }
 };
 
 const text = {
