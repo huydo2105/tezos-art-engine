@@ -8,7 +8,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmQc8NbrT2KDZrQRTv62q9bPYL4W9m8FfZTVWyoq6ZMnUf";
+const baseUri = "ipfs://Qmc9kUyLznfhz7pDcaNmhQJfCe3U4YggUk9S4KVvs8nPTo";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -129,8 +129,8 @@ const tezosConfig = {
   symbol: "JOKO",
   rights: "All right reserved.",
   baseArtifactUri: baseUri,
-  baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-  baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
+  baseDisplayUri: "ipfs://QmVbQNSG6VsPEjtGwqDb3ENXyu1CVQaVBHRNb6vr49PEh2",
+  baseThumbnailUri: "ipfs://QmPhs88uv5jRGfafsU1kbmvZXafwDf4aep15DoeFsYyh4Z",
   size: {
     artifactUri: { w: format.width, h: format.height },
     displayUri: { w: 500, h: 500 },

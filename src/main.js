@@ -174,7 +174,7 @@ const addMetadata = (_dna, _edition) => {
       displayUri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
       thumbnailUri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
       decimals: tezosConfig.decimals,
-      attributes: attributesList,
+      // attributes: attributesList,
       creators: tezosConfig.creators,
       isBooleanAmount: tezosConfig.isBooleanAmount,
       symbol: tezosConfig.symbol,

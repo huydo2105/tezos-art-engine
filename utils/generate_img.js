@@ -10,9 +10,11 @@ const {
     layerConfigurations,
 } = require(`${basePath}/src/config.js`);
 
+const IMAGE_NAME = "artifact 3.png";
+
 const saveImage = async () => {
     let editionCount = 0;
-    const background = await loadImage(`${basePath}/src_img/0.png`);
+    const background = await loadImage(`${basePath}/src_img/${IMAGE_NAME}`);
     while (
         editionCount <= layerConfigurations[0].growEditionSizeTo
     )   {
