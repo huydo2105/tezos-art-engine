@@ -9,7 +9,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmQc8NbrT2KDZrQRTv62q9bPYL4W9m8FfZTVWyoq6ZMnUf";
+const baseUri = "ipfs://QmZrs69ifbkDkQaY2C66Cmf1YqT1F7pSPD8CMkFJuNKexd";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -26,7 +26,7 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 20,
+    growEditionSizeTo: 1,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -36,6 +36,11 @@ const layerConfigurations = [
       { name: "Bottom lid" },
       { name: "Top lid" },
     ],
+    attributes: [
+      { name: "Tier", value: "1" },
+      { name: "Artist", value: "Kalibwoy" },
+      { name: "Pixel Artist", value: "Sutuburg" },
+    ]
     // layersOrder: [
     //   { name: "Background" },
     //   {
@@ -58,9 +63,9 @@ const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
 
-const artifact_name = "Caliph - JOKO teaser long (Imran)-.mp4"
-const display_name = "Caliph - JOKO teaser long (Imran)-.mp4"
-const thumbnail_name = "Caliph - JOKO teaser long (Imran)-.mp4"
+const artifact_name = "WAVY HARMONYS.MP4.MP4"
+const display_name = "WAVY HARMONYS.MP4.MP4"
+const thumbnail_name = "WAVY HARMONYS.MP4.MP4"
 const artifactVideo = fs.statSync(`${basePath}/src_video/${artifact_name}`)
 const displayVideo = fs.statSync(`${basePath}/src_video/${display_name}`)
 const thumbnailVideo = fs.statSync(`${basePath}/src_video/${thumbnail_name}`)
@@ -152,15 +157,15 @@ const preview_gif = {
  */
 
 const tezosConfig = {
-  creators: ["Lojay https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
+  creators: ["Kalibwoy https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
   isBooleanAmount: true,
   shouldPreferSymbol: false,
   decimals: 0,
   symbol: "JOKO",
   rights: "All right reserved.",
   baseArtifactUri: baseUri,
-  baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-  baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
+  baseDisplayUri: "ipfs://QmZrs69ifbkDkQaY2C66Cmf1YqT1F7pSPD8CMkFJuNKexd",
+  baseThumbnailUri: "ipfs://QmZrs69ifbkDkQaY2C66Cmf1YqT1F7pSPD8CMkFJuNKexd",
   size: {
     artifactUri: { w: format.width, h: format.height, r: format.rate },
     displayUri: { w: 500, h: 500 },

@@ -175,7 +175,7 @@ const addMetadata = (_dna, _edition) => {
       displayUri: `${tezosConfig.baseDisplayUri}`,
       thumbnailUri: `${tezosConfig.baseThumbnailUri}`,
       decimals: tezosConfig.decimals,
-      // attributes: attributesList,
+      attributes: attributesList,
       creators: tezosConfig.creators,
       isBooleanAmount: tezosConfig.isBooleanAmount,
       symbol: tezosConfig.symbol,
@@ -205,8 +205,20 @@ const addMetadata = (_dna, _edition) => {
       royalties: tezosConfig.royalties,
     };
   }
+  addAttributesTezos();
   metadataList.push(tempMetadata);
-  // attributesList = [];
+  attributesList = [];
+};
+
+const addAttributesTezos = () => {
+  if (network == NETWORK.tez) {
+    layerConfigurations[layerConfigurations.length - 1].attributes.forEach((attribute) => {
+      attributesList.push({
+        name: attribute.name,
+        value: attribute.value,
+      });
+    })
+  }
 };
 
 const addAttributes = (_element) => {
@@ -257,7 +269,7 @@ const drawElement = (_renderObject, _index, _layersLen) => {
         format.height
       );
 
-  addAttributes(_renderObject);
+  // addAttributes(_renderObject);
 };
 
 const constructLayerToDna = (_dna = "", _layers = []) => {

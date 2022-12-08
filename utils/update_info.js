@@ -9,6 +9,7 @@ const {
   network,
   solanaMetadata,
   tezosConfig,
+  video,
 } = require(`${basePath}/src/config.js`);
 
 // read json data
@@ -24,40 +25,34 @@ data.forEach((item) => {
     // Modify tezos specif metadata
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
-    item.artifactUri = `${tezosConfig.baseArtifactUri}/${item.edition}.png`;
-    item.displayUri = `${tezosConfig.baseDisplayUri}/${item.edition}.png`;
-    item.thumbnailUri = `${tezosConfig.baseThumbnailUri}/${item.edition}.png`;
+    item.artifactUri = `${tezosConfig.baseArtifactUri}`;
+    item.displayUri = `${tezosConfig.baseDisplayUri}`;
+    item.thumbnailUri = `${tezosConfig.baseThumbnailUri}`;
     item.formats = [
       {
-        mimeType: "image/png",
-        uri: `${tezosConfig.baseArtifactUri}/${item.edition}.png`,
-        dimensions: {
-          value: `${tezosConfig.size.artifactUri.w}x${tezosConfig.size.artifactUri.h}`,
-          unit: "px",
-        },
+        mimeType: video.artifact.type,
+        fileName: video.artifact.name,
+        fileSize: video.artifact.size,
+        uri: `${tezosConfig.baseArtifactUri}`,
       },
       {
-        mimeType: "image/png",
-        uri: `${tezosConfig.baseDisplayUri}/${item.edition}.png`,
-        dimensions: {
-          value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
-          unit: "px",
-        },
+        mimeType: video.display.type,
+        fileName: video.display.name,
+        fileSize: video.display.size,
+        uri: `${tezosConfig.baseDisplayUri}`,
       },
       {
-        mimeType: "image/png",
-        uri: `${tezosConfig.baseThumbnailUri}/${item.edition}.png`,
-        dimensions: {
-          value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
-          unit: "px",
-        },
+        mimeType: video.thumbnail.type,
+        fileName: video.thumbnail.name,
+        fileSize: video.thumbnail.size,
+        uri: `${tezosConfig.baseThumbnailUri}`,
       },
     ];
     item.royalties = tezosConfig.royalties;
   } else {
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
-    item.image = `${baseUri}/${item.edition}.png`;
+    item.image = `${baseUri}`;
   }
   fs.writeFileSync(
     `${basePath}/build/json/${item.edition}`,
