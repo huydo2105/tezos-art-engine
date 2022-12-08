@@ -23,10 +23,18 @@ const solanaMetadata = {
   ],
 };
 
+const ARTIST = {
+  name: "Kalibwoy",
+  link: "https://rarible.com/ulfric"
+}
+const PIXEL_ARTIST = {
+  name: "Sutuburg",
+  link: "https://rarible.com/reza-mind-artist"
+}
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 1,
+    growEditionSizeTo: 20,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -37,9 +45,9 @@ const layerConfigurations = [
       { name: "Top lid" },
     ],
     attributes: [
-      { name: "Tier", value: "1" },
-      { name: "Artist", value: "Kalibwoy" },
-      { name: "Pixel Artist", value: "Sutuburg" },
+      { name: "Tier", value: "2" },
+      { name: "Artist", value: ARTIST.name },
+      { name: "Pixel artist", value: PIXEL_ARTIST.name },
     ]
     // layersOrder: [
     //   { name: "Background" },
@@ -157,7 +165,7 @@ const preview_gif = {
  */
 
 const tezosConfig = {
-  creators: ["Kalibwoy https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
+  creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST.name} ${PIXEL_ARTIST.link}`],
   isBooleanAmount: true,
   shouldPreferSymbol: false,
   decimals: 0,
