@@ -9,6 +9,7 @@ const {
   network,
   solanaMetadata,
   tezosConfig,
+  gif,
 } = require(`${basePath}/src/config.js`);
 
 // read json data
@@ -24,40 +25,46 @@ data.forEach((item) => {
     // Modify tezos specif metadata
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
-    item.artifactUri = `${tezosConfig.baseArtifactUri}/${item.edition}.png`;
-    item.displayUri = `${tezosConfig.baseDisplayUri}/${item.edition}.png`;
-    item.thumbnailUri = `${tezosConfig.baseThumbnailUri}/${item.edition}.png`;
+    item.artifactUri = `${tezosConfig.baseArtifactUri}`;
+    item.displayUri = `${tezosConfig.baseDisplayUri}`;
+    item.thumbnailUri = `${tezosConfig.baseThumbnailUri}`;
     item.formats = [
-      {
-        mimeType: "image/png",
-        uri: `${tezosConfig.baseArtifactUri}/${item.edition}.png`,
+      { 
         dimensions: {
+          unit: "px",
           value: `${tezosConfig.size.artifactUri.w}x${tezosConfig.size.artifactUri.h}`,
-          unit: "px",
         },
+        fileName: gif.artifact.name,
+        fileSize: gif.artifact.size,
+        mimeType: gif.artifact.type,
+        uri: `${tezosConfig.baseArtifactUri}`,
       },
-      {
-        mimeType: "image/png",
-        uri: `${tezosConfig.baseDisplayUri}/${item.edition}.png`,
+      { 
         dimensions: {
+          unit: "px",
           value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
-          unit: "px",
         },
+        fileName: gif.display.name,
+        fileSize: gif.display.size,
+        mimeType: gif.display.type,
+        uri: `${tezosConfig.baseDisplayUri}`,
       },
-      {
-        mimeType: "image/png",
-        uri: `${tezosConfig.baseThumbnailUri}/${item.edition}.png`,
+      { 
         dimensions: {
-          value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
           unit: "px",
+          value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
         },
+        fileName: gif.thumbnail.name,
+        fileSize: gif.thumbnail.size,
+        mimeType: gif.thumbnail.type,
+        uri: `${tezosConfig.baseThumbnailUri}`,
       },
     ];
     item.royalties = tezosConfig.royalties;
   } else {
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
-    item.image = `${baseUri}/${item.edition}.png`;
+    item.image = `${baseUri}`;
   }
   fs.writeFileSync(
     `${basePath}/build/json/${item.edition}`,

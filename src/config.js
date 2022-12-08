@@ -10,7 +10,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmQc8NbrT2KDZrQRTv62q9bPYL4W9m8FfZTVWyoq6ZMnUf";
+const baseUri = "ipfs://QmeH5mFFDngB3saJCcMoXRSYwKN3XdFyzzbvrRsjMdH2xY";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -23,7 +23,14 @@ const solanaMetadata = {
     },
   ],
 };
-
+const ARTIST = {
+  name: "Kalibwoy",
+  link: "https://rarible.com/ulfric"
+}
+const PIXEL_ARTIST = {
+  name: "Sutuburg",
+  link: "https://rarible.com/reza-mind-artist"
+}
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
@@ -37,6 +44,11 @@ const layerConfigurations = [
       { name: "Bottom lid" },
       { name: "Top lid" },
     ],
+    attributes: [
+      { name: "Tier", value: "2" },
+      { name: "Artist", value: ARTIST.name },
+      { name: "Pixel artist", value: PIXEL_ARTIST.name },
+    ]
     // layersOrder: [
     //   { name: "Background" },
     //   {
@@ -66,15 +78,15 @@ const format = {
   rate: 320,
 };
 
-const artifact_name = "artifact.gif"
-const display_name = "display.gif"
-const thumbnail_name = "thumbnail.gif"
-const artifactGif = await fs.promises.stat(`${basePath}/src_gif/${artifact_name}`)
-const displayGif = await fs.promises.stat(`${basePath}/src_gif/${display_name}`)
-const thumbnailGif = await fs.promises.stat(`${basePath}/src_gif/${thumbnail_name}`)
-const artifactType = mime.lookup(`${basePath}/src_video/${artifact_name}`)
-const displayType = mime.lookup(`${basePath}/src_video/${display_name}`)
-const thumbnailType = mime.lookup(`${basePath}/src_video/${thumbnail_name}`)
+const artifact_name = "snow-fall-2441.gif"
+const display_name = "snow-fall-2441.gif"
+const thumbnail_name = "snow-fall-2441.gif"
+const artifactGif =  fs.promises.stat(`${basePath}/src_gif/${artifact_name}`)
+const displayGif =  fs.promises.stat(`${basePath}/src_gif/${display_name}`)
+const thumbnailGif =  fs.promises.stat(`${basePath}/src_gif/${thumbnail_name}`)
+const artifactType = mime.lookup(`${basePath}/src_gif/${artifact_name}`)
+const displayType = mime.lookup(`${basePath}/src_gif/${display_name}`)
+const thumbnailType = mime.lookup(`${basePath}/src_gif/${thumbnail_name}`)
 
 const gif = {
   export: false,
@@ -150,15 +162,15 @@ const preview_gif = {
  */
 
 const tezosConfig = {
-  creators: ["Lojay https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
+  creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST.name} ${PIXEL_ARTIST.link}`],
   isBooleanAmount: true,
   shouldPreferSymbol: false,
   decimals: 0,
   symbol: "JOKO",
   rights: "All right reserved.",
   baseArtifactUri: baseUri,
-  baseDisplayUri: "ipfs://QmUgxbjVWWZFQhy9Pnz6f3nPqrRph2pJJ9TGiaheksUWs5",
-  baseThumbnailUri: "ipfs://QmbLW8RbfgnxK9VK6Jzz9EYhXSxo4L5q4G3hxvszBZ3TDo",
+  baseDisplayUri: "ipfs://QmeH5mFFDngB3saJCcMoXRSYwKN3XdFyzzbvrRsjMdH2xY",
+  baseThumbnailUri: "ipfs://QmeH5mFFDngB3saJCcMoXRSYwKN3XdFyzzbvrRsjMdH2xY",
   size: {
     artifactUri: { w: format.width, h: format.height, r: format.rate },
     displayUri: { w: 500, h: 500 },
