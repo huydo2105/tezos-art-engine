@@ -129,6 +129,7 @@ const drawBackground = () => {
 
 const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
+  let layerConfigForArtist = null;
   let tempMetadata = {
     name: `${namePrefix} #${_edition}`,
     description: description,
@@ -167,8 +168,11 @@ const addMetadata = (_dna, _edition) => {
     };
   }
   if (network == NETWORK.tez) {
-    tezosConfigForArtist = _edition <= layerConfigurations[layerConfigurations.length - 1].firstArtistEdition ? tezosConfig[0] : tezosConfig[1];
-    
+    let tezosConfigForArtist = _edition <= layerConfigurations[layerConfigurations.length - 1].firstArtistEdition ? tezosConfig[0] : tezosConfig[1];
+    layerConfigForArtist = _edition <= layerConfigurations[layerConfigurations.length - 1].firstArtistEdition ? 
+                            layerConfigurations[layerConfigurations.length - 1].attributes[0] : 
+                            layerConfigurations[layerConfigurations.length - 1].attributes[1];
+
     tempMetadata = {
       edition: Number(_edition),
       name: `${namePrefix} #${_edition}`,
@@ -213,8 +217,20 @@ const addMetadata = (_dna, _edition) => {
       royalties: tezosConfigForArtist.royalties,
     };
   }
+  addAttributesTezos(layerConfigForArtist);
   metadataList.push(tempMetadata);
   attributesList = [];
+};
+
+const addAttributesTezos = (layerConfigForArtist) => {
+  if (network == NETWORK.tez) {
+    layerConfigForArtist.forEach((attribute) => {
+      attributesList.push({
+        name: attribute.name,
+        value: attribute.value,
+      });
+    })
+  }
 };
 
 const addAttributes = (_element) => {
@@ -265,7 +281,7 @@ const drawElement = (_renderObject, _index, _layersLen) => {
         format.height
       );
 
-  addAttributes(_renderObject);
+  // addAttributes(_renderObject);
 };
 
 const constructLayerToDna = (_dna = "", _layers = []) => {
