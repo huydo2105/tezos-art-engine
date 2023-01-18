@@ -9,7 +9,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmZrs69ifbkDkQaY2C66Cmf1YqT1F7pSPD8CMkFJuNKexd";
+const baseUri = "ipfs://QmPSz792A3WtQQxk1kqmgzZ8tdFtAxeidQp4muTg71Kwij";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -34,7 +34,7 @@ const PIXEL_ARTIST = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 20,
+    growEditionSizeTo: 1,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -71,9 +71,9 @@ const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
 
-const artifact_name = "WAVY HARMONYS.MP4.MP4"
-const display_name = "WAVY HARMONYS.MP4.MP4"
-const thumbnail_name = "WAVY HARMONYS.MP4.MP4"
+const artifact_name = "VIDEO-2022-12-16-20-41-57.mp4"
+const display_name = "VIDEO-2022-12-16-20-41-57.mp4"
+const thumbnail_name = "VIDEO-2022-12-16-20-41-57.mp4"
 const artifactVideo = fs.statSync(`${basePath}/src_video/${artifact_name}`)
 const displayVideo = fs.statSync(`${basePath}/src_video/${display_name}`)
 const thumbnailVideo = fs.statSync(`${basePath}/src_video/${thumbnail_name}`)
@@ -172,8 +172,8 @@ const tezosConfig = {
   symbol: "JOKO",
   rights: "All right reserved.",
   baseArtifactUri: baseUri,
-  baseDisplayUri: "ipfs://QmZrs69ifbkDkQaY2C66Cmf1YqT1F7pSPD8CMkFJuNKexd",
-  baseThumbnailUri: "ipfs://QmZrs69ifbkDkQaY2C66Cmf1YqT1F7pSPD8CMkFJuNKexd",
+  baseDisplayUri: "ipfs://QmPSz792A3WtQQxk1kqmgzZ8tdFtAxeidQp4muTg71Kwij",
+  baseThumbnailUri: "ipfs://QmPSz792A3WtQQxk1kqmgzZ8tdFtAxeidQp4muTg71Kwij",
   size: {
     artifactUri: { w: format.width, h: format.height, r: format.rate },
     displayUri: { w: 500, h: 500 },
