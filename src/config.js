@@ -22,12 +22,24 @@ const solanaMetadata = {
   ],
 };
 
+const ARTIST = {
+  name: "Arria Star",
+  link: "https://rarible.com/ulfric"
+}
+const PIXEL_ARTIST = [
+  {
+    name: "Sutuburg",
+    link: "https://rarible.com/reza-mind-artist"
+  },
+  {
+    name: "Charlie",
+    link: "https://rarible.com/reza-mind-artist"
+  }
+]
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
     growEditionSizeTo: 20,
-    firstArtistEdition: 5,
-    secondArtistEdition: 15,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -37,6 +49,17 @@ const layerConfigurations = [
       { name: "Bottom lid" },
       { name: "Top lid" },
     ],
+    attributes: [[
+      { name: "Tier", value: "2" },
+      { name: "Artist", value: ARTIST.name },
+      { name: "Pixel artist", value: PIXEL_ARTIST[0].name },
+    ],
+    [
+      { name: "Tier", value: "2" },
+      { name: "Artist", value: ARTIST.name },
+      { name: "Pixel artist", value: PIXEL_ARTIST[1].name },
+    ] 
+    ]
     // layersOrder: [
     //   { name: "Background" },
     //   {
@@ -125,7 +148,7 @@ const preview_gif = {
 
 const tezosConfig = [
   {
-    creators: ["Arria Star https://rarible.com/ulfric","Sutuburg https://rarible.com/reza-mind-artist"],
+    creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST[0].name} ${PIXEL_ARTIST[0].link}`],
     isBooleanAmount: true,
     shouldPreferSymbol: false,
     decimals: 0,
@@ -149,7 +172,7 @@ const tezosConfig = [
     },
   }, 
   {
-    creators: ["Arria Star https://rarible.com/ulfric","Charlie https://rarible.com/reza-mind-artist"],
+    creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST[1].name} ${PIXEL_ARTIST[1].link}`],
     isBooleanAmount: true,
     shouldPreferSymbol: false,
     decimals: 0,
