@@ -9,7 +9,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmPSz792A3WtQQxk1kqmgzZ8tdFtAxeidQp4muTg71Kwij";
+const baseUri = "ipfs://QmXRYzEEkUzsu3As1PEHUD6Wh1z1YHSm6UGYgY5zJhR5bu";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -28,13 +28,13 @@ const ARTIST = {
   link: "https://rarible.com/ulfric"
 }
 const PIXEL_ARTIST = {
-  name: "Sutuburg",
-  link: "https://rarible.com/reza-mind-artist"
+  name: "Charlie",
+  link: "https://objkt.com/profile/lucrece/created"
 }
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 1,
+    growEditionSizeTo: 30,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -45,7 +45,7 @@ const layerConfigurations = [
       { name: "Top lid" },
     ],
     attributes: [
-      { name: "Tier", value: "2" },
+      { name: "Tier", value: "3" },
       { name: "Artist", value: ARTIST.name },
       { name: "Pixel artist", value: PIXEL_ARTIST.name },
     ]
@@ -71,9 +71,9 @@ const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
 
-const artifact_name = "VIDEO-2022-12-16-20-41-57.mp4"
-const display_name = "VIDEO-2022-12-16-20-41-57.mp4"
-const thumbnail_name = "VIDEO-2022-12-16-20-41-57.mp4"
+const artifact_name = "Caliph - JOKO teaser long (Imran)-.mp4"
+const display_name = "Caliph - JOKO teaser long (Imran)-.mp4"
+const thumbnail_name = "Caliph - JOKO teaser long (Imran)-.mp4"
 const artifactVideo = fs.statSync(`${basePath}/src_video/${artifact_name}`)
 const displayVideo = fs.statSync(`${basePath}/src_video/${display_name}`)
 const thumbnailVideo = fs.statSync(`${basePath}/src_video/${thumbnail_name}`)
@@ -172,8 +172,8 @@ const tezosConfig = {
   symbol: "JOKO",
   rights: "All right reserved.",
   baseArtifactUri: baseUri,
-  baseDisplayUri: "ipfs://QmPSz792A3WtQQxk1kqmgzZ8tdFtAxeidQp4muTg71Kwij",
-  baseThumbnailUri: "ipfs://QmPSz792A3WtQQxk1kqmgzZ8tdFtAxeidQp4muTg71Kwij",
+  baseDisplayUri: "ipfs://QmXRYzEEkUzsu3As1PEHUD6Wh1z1YHSm6UGYgY5zJhR5bu",
+  baseThumbnailUri: "ipfs://QmXRYzEEkUzsu3As1PEHUD6Wh1z1YHSm6UGYgY5zJhR5bu",
   size: {
     artifactUri: { w: format.width, h: format.height, r: format.rate },
     displayUri: { w: 500, h: 500 },
