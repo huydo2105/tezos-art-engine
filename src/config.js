@@ -8,7 +8,7 @@ const network = NETWORK.tez;
 // General metadata for Ethereum
 const namePrefix = "Joko test tokens";
 const description = "Joko tokens enable owners watch their favourite artist BTS.";
-const baseUri = "ipfs://QmQbKGEGkmDW4mJnGd7UvRGENkHSbMkV5KeHCJeYstCT3v";
+const baseUri = "ipfs://QmTvqbRfx9SmhesBs9Y5YhP4R5fjvBcywrbJFekMmnuWve";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -23,19 +23,14 @@ const solanaMetadata = {
 };
 
 const ARTIST = {
-  name: "Arria Star",
+  name: "Lojay",
   link: "https://rarible.com/ulfric"
 }
-const PIXEL_ARTIST = [
-  {
-    name: "Sutuburg",
-    link: "https://rarible.com/reza-mind-artist"
-  },
+const PIXEL_ARTIST = 
   {
     name: "Charlie",
     link: "https://rarible.com/reza-mind-artist"
   }
-]
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
@@ -51,17 +46,11 @@ const layerConfigurations = [
       { name: "Bottom lid" },
       { name: "Top lid" },
     ],
-    attributes: [[
-      { name: "Tier", value: "2" },
+    attributes: [
+      { name: "Tier", value: "3" },
       { name: "Artist", value: ARTIST.name },
-      { name: "Pixel artist", value: PIXEL_ARTIST[0].name },
+      { name: "Pixel artist", value: PIXEL_ARTIST.name },
     ],
-    [
-      { name: "Tier", value: "2" },
-      { name: "Artist", value: ARTIST.name },
-      { name: "Pixel artist", value: PIXEL_ARTIST[1].name },
-    ] 
-    ]
     // layersOrder: [
     //   { name: "Background" },
     //   {
@@ -148,17 +137,17 @@ const preview_gif = {
  * NOTE: Modify this config to generate different metadata.
  */
 
-const tezosConfig = [
+const tezosConfig = 
   {
-    creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST[0].name} ${PIXEL_ARTIST[0].link}`],
+    creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST.name} ${PIXEL_ARTIST.link}`],
     isBooleanAmount: true,
     shouldPreferSymbol: false,
     decimals: 0,
     symbol: "JOKO",
     rights: "All right reserved.",
     baseArtifactUri: baseUri,
-    baseDisplayUri: "ipfs://QmSbMZMbN27iqopigHRfEH8pZ68V6Q9Lc9wPCQavdX92iw",
-    baseThumbnailUri: "ipfs://QmQYzVKbDkRkCDMHr6QtTCvHSUyRFTYDd24ZFPnSKMRPxe",
+    baseDisplayUri: "ipfs://QmSk8TKY8EeyrcVybLYryBja5LgGMbsH8kKWsZ12fzo27g",
+    baseThumbnailUri: "ipfs://Qmd5goQhFStSTyhLPrQz5rvAhKVrS4rrGeDiCnCs658VkX",
     size: {
       artifactUri: { w: format.width, h: format.height },
       displayUri: { w: 500, h: 500 },
@@ -172,32 +161,8 @@ const tezosConfig = [
         tz1NcYGUWUrcriX5nWmHN6daCDKHQdMUSUDp: 30,
       },
     },
-  }, 
-  {
-    creators: [`${ARTIST.name} ${ARTIST.link}`,`${PIXEL_ARTIST[1].name} ${PIXEL_ARTIST[1].link}`],
-    isBooleanAmount: true,
-    shouldPreferSymbol: false,
-    decimals: 0,
-    symbol: "JOKO",
-    rights: "All right reserved.",
-    baseArtifactUri: baseUri,
-    baseDisplayUri: "ipfs://QmSbMZMbN27iqopigHRfEH8pZ68V6Q9Lc9wPCQavdX92iw",
-    baseThumbnailUri: "ipfs://QmQYzVKbDkRkCDMHr6QtTCvHSUyRFTYDd24ZFPnSKMRPxe",
-    size: {
-      artifactUri: { w: format.width, h: format.height },
-      displayUri: { w: 500, h: 500 },
-      thumbnailUri: { w: 300, h: 300 },
-    },
-    royalties: {
-      decimals: 3,
-      shares: {
-        tz1cVm8jzr5MN6oH21p54HuWCi69qYzjo7MN: 120,
-        tz1bnmFGgKfrRfHLNABQpWh14CjsTKmrFNog: 100,
-        tz1iyd1dExPGVuS7JvueGXF13LZaENVcaPya: 30,
-      },
-    },
   }
-]
+
 
 /**
  * End of tezos specific config.

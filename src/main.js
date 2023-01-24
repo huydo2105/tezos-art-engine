@@ -168,63 +168,59 @@ const addMetadata = (_dna, _edition) => {
     };
   }
   if (network == NETWORK.tez) {
-    let tezosConfigForArtist = _edition <= layerConfigurations[layerConfigurations.length - 1].firstArtistEdition ? tezosConfig[0] : tezosConfig[1];
-    layerConfigForArtist = _edition <= layerConfigurations[layerConfigurations.length - 1].firstArtistEdition ? 
-                            layerConfigurations[layerConfigurations.length - 1].attributes[0] : 
-                            layerConfigurations[layerConfigurations.length - 1].attributes[1];
-
+    
     tempMetadata = {
       edition: Number(_edition),
       name: `${namePrefix} #${_edition}`,
       description: description,
-      artifactUri: `${tezosConfigForArtist.baseArtifactUri}/${_edition}.png`,
-      displayUri: `${tezosConfigForArtist.baseDisplayUri}/${_edition}.png`,
-      thumbnailUri: `${tezosConfigForArtist.baseThumbnailUri}/${_edition}.png`,
-      decimals: tezosConfigForArtist.decimals,
+      artifactUri: `${tezosConfig.baseArtifactUri}/${_edition}.png`,
+      displayUri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
+      thumbnailUri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
+      decimals: tezosConfig.decimals,
       attributes: attributesList,
-      creators: tezosConfigForArtist.creators,
-      isBooleanAmount: tezosConfigForArtist.isBooleanAmount,
-      symbol: tezosConfigForArtist.symbol,
-      rights: tezosConfigForArtist.rights,
-      shouldPreferSymbol: tezosConfigForArtist.shouldPreferSymbol,
+      creators: tezosConfig.creators,
+      isBooleanAmount: tezosConfig.isBooleanAmount,
+      symbol: tezosConfig.symbol,
+      rights: tezosConfig.rights,
+      shouldPreferSymbol: tezosConfig.shouldPreferSymbol,
       formats: [
         {
           mimeType: "image/png",
-          uri: `${tezosConfigForArtist.baseArtifactUri}/${_edition}.png`,
+          uri: `${tezosConfig.baseArtifactUri}/${_edition}.png`,
           dimensions: {
-            value: `${tezosConfigForArtist.size.artifactUri.w}x${tezosConfigForArtist.size.artifactUri.h}`,
+            value: `${tezosConfig.size.artifactUri.w}x${tezosConfig.size.artifactUri.h}`,
             unit: "px",
           },
         },
         {
           mimeType: "image/png",
-          uri: `${tezosConfigForArtist.baseDisplayUri}/${_edition}.png`,
+          uri: `${tezosConfig.baseDisplayUri}/${_edition}.png`,
           dimensions: {
-            value: `${tezosConfigForArtist.size.displayUri.w}x${tezosConfigForArtist.size.displayUri.h}`,
+            value: `${tezosConfig.size.displayUri.w}x${tezosConfig.size.displayUri.h}`,
             unit: "px",
           },
         },
         {
           mimeType: "image/png",
-          uri: `${tezosConfigForArtist.baseThumbnailUri}/${_edition}.png`,
+          uri: `${tezosConfig.baseThumbnailUri}/${_edition}.png`,
           dimensions: {
-            value: `${tezosConfigForArtist.size.thumbnailUri.w}x${tezosConfigForArtist.size.thumbnailUri.h}`,
+            value: `${tezosConfig.size.thumbnailUri.w}x${tezosConfig.size.thumbnailUri.h}`,
             unit: "px",
           },
         },
       ],
       ...extraMetadata,
-      royalties: tezosConfigForArtist.royalties,
+      royalties: tezosConfig.royalties,
     };
   }
-  addAttributesTezos(layerConfigForArtist);
+  addAttributesTezos();
   metadataList.push(tempMetadata);
   attributesList = [];
 };
 
-const addAttributesTezos = (layerConfigForArtist) => {
+const addAttributesTezos = () => {
   if (network == NETWORK.tez) {
-    layerConfigForArtist.forEach((attribute) => {
+    layerConfigurations[layerConfigurations.length - 1].attributes.forEach((attribute) => {
       attributesList.push({
         name: attribute.name,
         value: attribute.value,
